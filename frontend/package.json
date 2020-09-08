@@ -1,0 +1,43 @@
+{
+  "name": "watchzone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack -d --mode development",
+    "build-prod": "webpack -p --mode production",
+    "start": "webpack-dev-server --hot --mode development"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.20",
+    "popper.js": "^1.16.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.21",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@hot-loader/react-dom": "^16.13.0+4.12.20",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.2",
+    "file-loader": "^6.0.0",
+    "lodash-webpack-plugin": "^0.11.5",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.1.1",
+    "sass-loader": "^10.0.1",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
