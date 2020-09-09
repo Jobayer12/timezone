@@ -6,6 +6,7 @@ class Layout extends Component {
             <div>
                 <Header/>
                 {this.props.children}
+
             </div>
         );
     }

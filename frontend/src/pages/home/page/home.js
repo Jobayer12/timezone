@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Layout from '../../../component/layout';
-import Loader from '../../../component/loader';
 import Watch from '../../../assets/img/hero/watch.png';
 
 class Home extends Component {
