@@ -26,20 +26,18 @@ const createUser = async user =>{
 
 
 const localUserLogin = async user =>{
-    // const createUserDataValidation = await userValidation(user);
-    const checkUserExistsOrNot = await loginUser({'u.deleted_at':null, 'u.email': user.email.toLowerCase()});
-    this.checkUserExistsOrNot = checkUserExistsOrNot[0];
-    console.log('check user', this.checkUserExistsOrNot);
+    const createUserDataValidation = await userValidation(user);
+    const userData = await loginUser({'u.deleted_at':null, 'u.email': user.email.toLowerCase()});
 
-    if(this.checkUserExistsOrNot
+    if(userData
         &&
-        this.checkUserExistsOrNot.email.toLowerCase() === user.email.toLowerCase()
+        userData[0].email.toLowerCase() === user.email.toLowerCase()
         &&
-        bcrypt.compareSync(user.password, this.checkUserExistsOrNot.password))
+        bcrypt.compareSync(user.password, userData[0].password))
     {
-        delete this.checkUserExistsOrNot.password;
+        delete userData[0].password;
         return {
-            accessToken: await generateToken(this.checkUserExistsOrNot)
+            accessToken: await generateToken(userData[0])
         }
     }
     throw  new Error('Invalid auth credentials');
