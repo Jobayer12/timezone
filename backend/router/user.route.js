@@ -2,8 +2,9 @@
 
 const router = require('express').Router()
 const userController = require('../pages/user/controller/user.controller');
+const userMiddleWare= require('../middleware/user.role');
 
-router.get('/users', userController.getAllUser);
+router.get('/users', userMiddleWare.userLoginTokenVerified, userController.getAllUser);
 router.post('/register', userController.createLocalUser);
 router.post('/login', userController.login);
 
