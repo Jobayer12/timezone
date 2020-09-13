@@ -1,7 +1,7 @@
 const knexnest = require('knexnest');
 const {getConnection} = require('../../../database/connection/connection')
 
-const loadUser =async searchClause=>{
+exports.loadUser =async searchClause=>{
     const knex  = await getConnection();
     return  knexnest(knex.select([
         'u.id as _id',
@@ -9,17 +9,17 @@ const loadUser =async searchClause=>{
         'u.last_name as _lastname',
         'u.email as _email',
         'u.phone as _phone'
-    ]).from('users as u').where(searchClause)).then(user=>{
+    ]).from('users as u').where(searchClause).orderBy('u.id', 'desc')).then(user=>{
         return user;
     });
 }
 
-const createLocalUser= async user =>{
+exports.createLocalUser= async user =>{
     const knex = await getConnection();
     return knex.insert(user,['id']).into('users')
 }
 
-const loginUser = async searchClause =>{
+exports.loginUser = async searchClause =>{
     const knex = await getConnection();
     return  knexnest(knex.select([
         'u.id as _id',
@@ -32,5 +32,3 @@ const loginUser = async searchClause =>{
         return user;
     });
 }
-
-module.exports={loadUser, createLocalUser, loginUser};
