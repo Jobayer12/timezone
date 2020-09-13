@@ -3,10 +3,10 @@ const {loadUser, createLocalUser, loginUser} = require('../database-service/user
 const {userValidation} = require('../../../validation');
 const {generateToken} = require('../../../JWT');
 
-const getAllUsers =async ()=>{
+exports.getAllUsers =async ()=>{
     return await loadUser({'u.deleted_at': null});
 }
-const createUser = async user =>{
+exports.createLocalUser = async user =>{
     const createUserDataValidation = await userValidation(user);
 
     const checkUserExistsOrNot = await loadUser({'u.deleted_at':null, 'u.email': user.email.toLowerCase()});
@@ -25,7 +25,7 @@ const createUser = async user =>{
 }
 
 
-const localUserLogin = async user =>{
+exports.localUserLogin = async user =>{
     const createUserDataValidation = await userValidation(user);
     const userData = await loginUser({'u.deleted_at':null, 'u.email': user.email.toLowerCase()});
 
@@ -42,5 +42,3 @@ const localUserLogin = async user =>{
     }
     throw  new Error('Invalid auth credentials');
 }
-
-module.exports={getAllUsers, createUser, localUserLogin};
