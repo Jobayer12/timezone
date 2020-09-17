@@ -14,3 +14,13 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+/frontend/node_modules/
+/frontend/dist/
+/backend/node_modules/
+/backend/.env/
+.env
+/backend/dist/
+/backend/test.js
+/test/
+
