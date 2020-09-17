@@ -4,6 +4,7 @@ coverage/
 dist/*
 !dist/index.html
 node_modules/
+.env/
 *.log
 
 # OS generated files
@@ -19,8 +20,3 @@ Thumbs.db
 /frontend/dist/
 /backend/node_modules/
 /backend/.env/
-.env
-/backend/dist/
-/backend/test.js
-/test/
-
