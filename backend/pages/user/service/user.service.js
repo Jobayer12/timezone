@@ -27,7 +27,7 @@ exports.createLocalUser = async user =>{
 
 exports.localUserLogin = async user =>{
     const createUserDataValidation = await userValidation(user);
-    const userData = await loginUser({'u.deleted_at':null, 'u.email': user.email.toLowerCase()});
+    const userData = await loginUser({'u.deleted_at':null, 'u.email': user.email});
 
     if(userData
         &&
